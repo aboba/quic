@@ -323,7 +323,7 @@ References
 .NH 2
 .R
 Informative References
-.IP [I-D.ietf-quic-tls] 15
+.IP [I-D.ietf-quic-tls] 13
 Thomson, M. and S. Turner, "Using Transport Layer Security
 (TLS) to Secure QUIC", draft-ietf-quic-tls-07
 (work in progress), October 13, 2017.
