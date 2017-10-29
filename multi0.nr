@@ -98,7 +98,18 @@ Authors' Addresses . . . . . . . . . . . . . . . . . . . . . . . .  9
 Introduction
 
 .in +0.3i
-There are a number of ways in which communication between
+QUIC is a new network transport protocol. It's initially intended as a
+replacement for TCP to better support HTTP/2, but should eventually be
+useful as a general purpose transport. HTTP is an asymmetric client-server 
+protocol, but other uses of QUIC might want to work in a peer-to-peer
+manner and so will need effective NAT traversal. The IETF solution to
+NAT traversal is ICE, which makes use of STUN and TURN to discover NAT
+bindings. This STUN and TURN traffic needs to run on the same UDP port
+as the QUIC traffic. Accordingly, if QUIC is to be used in a peer-to-peer
+manner, then it needs to be possible to demultiplex QUIC, STUN, and TURN
+traffic running on a single UDP port. This memo discusses how to do this.
+
+In addition, there are a number of ways in which communication between
 WebRTC peers may utilize QUIC. One of these is transport of
 RTP over QUIC, described in [I-D.rtpfolks-quic-rtp-over-quic].
 Another is use of
