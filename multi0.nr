@@ -325,16 +325,16 @@ References
 Informative References
 .IP [I-D.ietf-quic-tls] 15
 Thomson, M. and S. Turner, "Using Transport Layer Security
-(TLS) to Secure QUIC", draft-ietf-quic-tls-07 (work in
-progress), October 2017.
+(TLS) to Secure QUIC", draft-ietf-quic-tls-07
+(work in progress), October 13, 2017.
 .IP [I-D.ietf-quic-transport]
 Iyengar, J. and M. Thomson, "QUIC: A UDP-Based Multiplexed
-and Secure Transport", draft-ietf-quic-transport-07 (work
-in progress), October 2017.
+and Secure Transport", draft-ietf-quic-transport-07
+(work in progress), October 13, 2017.
 .IP [I-D.rtpfolks-quic-rtp-over-quic]
 Ott, J., Even, R., Perkins, C. and V. Singh,
-"RTP over QUIC", Internet draft (work in progress),
-draft-rtpfolks-quic-rtp-over-quic-01, September 1, 2017.
+"RTP over QUIC", draft-rtpfolks-quic-rtp-over-quic-01
+(work in progress), September 1, 2017.
 .IP [ORTC]
 Raymond, R., Aboba, B. and J. Uberti,
 "Object RTC (ORTC) API for WebRTC", W3C,
@@ -345,7 +345,7 @@ https://github.com/quicwg/base-drafts/issues/426,
 March, 2017.
 .IP [QUIC-Spin]
 Huitema, C., "QUIC Latency Spin Bit",
-https://github.com/quicwg/base-drafts/issues/609, June, 2017.
+https://github.com/quicwg/base-drafts/issues/609, June 2017.
 .IP [RFC2119]
 Bradner, S., "Key words for use in RFCs to Indicate
 Requirement Levels", BCP 14, RFC 2119,
@@ -393,12 +393,18 @@ RFC 6189, DOI 10.17487/RFC6189, April 2011,
 Rescorla, E. and N. Modadugu, "Datagram Transport Layer
 Security Version 1.2", RFC 6347, DOI 10.17487/RFC6347,
 January 2012, <http://www.rfc-editor.org/info/rfc6347>.
+.IP [RFC7540]
+Belshe, M., Peon, R., and M. Thomson, Ed., "Hypertext
+Transfer Protocol Version 2 (HTTP/2)", RFC 7540,
+DOI 10.17487/RFC7540, May 2015,
+<https://www.rfc-editor.org/info/rfc7540>.
 .IP [RFC7983]
 Petit-Huguenin, M. and G. Salgueiro, 
 "Multiplexing Scheme Updates
 for Secure Real-time Transport Protocol (SRTP) Extension
 for Datagram Transport Layer Security (DTLS)",
-RFC 7983, September 2016.
+RFC 7983, DOI 10.17487/RFC7983, September 2016,
+<https://www.rfc-editor.org/info/rfc7983>.
 .LP
 .bp
 Acknowledgments
