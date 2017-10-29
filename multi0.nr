@@ -203,10 +203,6 @@ would imply a reduction in the size of the type fields:
 Note: [QUIC-Spin] proposes to add a spin bit to the type octet within the QUIC header, in order to allow for RTT calculation.
 This would leave 4 bits for the type field in the long header packet and 2 bits for the type field in the short header, which
 would accomodate the type field values allocated in [I-D.ietf-quic-transport]. 
-.in -0.3i
-.NH 3
-.R
-Pros and Cons
 
 .in +0.3i
 The advantage to this approach is that it adds no additional overhead on-the-wire.
@@ -231,10 +227,6 @@ value 192 could be used:
  |1|1|0|0|0|0|0|0|
  +-+-+-+-+-+-+-+-+
 .fi
-.in -0.3i
-.NH 3
-.R
-Pros and Cons
 
 .in +0.3i
 Advantages of this approach include simplicity and the consumption of
@@ -293,10 +285,6 @@ of QUIC packets from RTP/RTCP/DTLS/STUN/TURN/ZRTP:
        data or other STUN traffic. But what about consent
        packets?
 .fi
-.in -0.3i
-.NH 3
-.R
-Pros and Cons
 
 .in +0.3i
 This approach has the advantage that it requires no changes to QUIC headers,
