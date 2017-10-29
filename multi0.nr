@@ -16,7 +16,7 @@
 .tl 'AVTCORE Working Group''B. Aboba'
 .tl 'INTERNET-DRAFT''Microsoft Corporation'
 .tl 'Category: Informational''P. Thatcher'
-.tl 'Expires: April 24, 2018''Google'
+.tl 'Expires: April 30, 2018''Google'
 .tl '''C. Perkins'
 .tl '''University of Glasgow'
 .tl '''\*(DY'
@@ -25,14 +25,17 @@
 .ce
 QUIC Multiplexing
 .ce
-draft-aboba-avtcore-quic-multiplexing-00.txt
+draft-aboba-avtcore-quic-multiplexing-01.txt
 
 Abstract
 
 .in +0.3i
-This document describes potential approaches to
-multiplexing of QUIC along with RTP, RTCP, DTLS, STUN,
-TURN and ZRTP in WebRTC peer-to-peer data exchange.
+If QUIC is to be used in a peer-to-peer manner, with NAT traversal,
+then it is necessary to be able to demultiplex QUIC and STUN flows
+running on a single UDP port.  This memo discusses options for how
+to perform such demultiplexing.  It also considers demultiplexing
+of QUIC and WebRTC traffic (both media and data) when running on a 
+single UDP port.
 .in -0.3i
 
 Status of This Memo
@@ -51,7 +54,7 @@ and may be updated, replaced, or obsoleted by other documents at any
 time.  It is inappropriate to use Internet-Drafts as reference
 material or to cite them other than as "work in progress."
 
-This Internet-Draft will expire on April 24, 2018. 
+This Internet-Draft will expire on April 30, 2018.
 .in -0.3i
 .bp
 Copyright Notice
@@ -95,7 +98,18 @@ Authors' Addresses . . . . . . . . . . . . . . . . . . . . . . . .  9
 Introduction
 
 .in +0.3i
-There are a number of ways in which communication between
+QUIC is a new network transport protocol. It's initially intended as a
+replacement for TCP to better support HTTP/2, but should eventually be
+useful as a general purpose transport. HTTP is an asymmetric client-server 
+protocol, but other uses of QUIC might want to work in a peer-to-peer
+manner and so will need effective NAT traversal. The IETF solution to
+NAT traversal is ICE, which makes use of STUN and TURN to discover NAT
+bindings. This STUN and TURN traffic needs to run on the same UDP port
+as the QUIC traffic. Accordingly, if QUIC is to be used in a peer-to-peer
+manner, then it needs to be possible to demultiplex QUIC, STUN, and TURN
+traffic running on a single UDP port. This memo discusses how to do this.
+
+In addition, there are a number of ways in which communication between
 WebRTC peers may utilize QUIC. One of these is transport of
 RTP over QUIC, described in [I-D.rtpfolks-quic-rtp-over-quic].
 Another is use of
@@ -189,10 +203,6 @@ would imply a reduction in the size of the type fields:
 Note: [QUIC-Spin] proposes to add a spin bit to the type octet within the QUIC header, in order to allow for RTT calculation.
 This would leave 4 bits for the type field in the long header packet and 2 bits for the type field in the short header, which
 would accomodate the type field values allocated in [I-D.ietf-quic-transport]. 
-.in -0.3i
-.NH 3
-.R
-Pros and Cons
 
 .in +0.3i
 The advantage to this approach is that it adds no additional overhead on-the-wire.
@@ -217,10 +227,6 @@ value 192 could be used:
  |1|1|0|0|0|0|0|0|
  +-+-+-+-+-+-+-+-+
 .fi
-.in -0.3i
-.NH 3
-.R
-Pros and Cons
 
 .in +0.3i
 Advantages of this approach include simplicity and the consumption of
@@ -279,10 +285,6 @@ of QUIC packets from RTP/RTCP/DTLS/STUN/TURN/ZRTP:
        data or other STUN traffic. But what about consent
        packets?
 .fi
-.in -0.3i
-.NH 3
-.R
-Pros and Cons
 
 .in +0.3i
 This approach has the advantage that it requires no changes to QUIC headers,
@@ -429,7 +431,6 @@ USA
 Email: pthatcher@google.com
 
 Colin Perkins
-University of Glasgow
 School of Computing Science
 University of Glasgow
 Glasgow  G12 8QQ
