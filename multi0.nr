@@ -429,7 +429,6 @@ USA
 Email: pthatcher@google.com
 
 Colin Perkins
-University of Glasgow
 School of Computing Science
 University of Glasgow
 Glasgow  G12 8QQ
