@@ -1,4 +1,4 @@
-.\" format this document with "rfc multi0.nr draft-aboba-avtcore-quic-multiplexing-00.txt"
+.\" format this document with "rfc multi0.nr draft-aboba-avtcore-quic-multiplexing-01.txt"
 .nr HY 0
 .pl 10.0i
 .po 0
@@ -98,13 +98,14 @@ Authors' Addresses . . . . . . . . . . . . . . . . . . . . . . . .  9
 Introduction
 
 .in +0.3i
-QUIC is a new network transport protocol. It's initially intended as a
-replacement for TCP to better support HTTP/2, but should eventually be
-useful as a general purpose transport. HTTP is an asymmetric client-server 
-protocol, but other uses of QUIC might want to work in a peer-to-peer
-manner and so will need effective NAT traversal. The IETF solution to
-NAT traversal is ICE, which makes use of STUN and TURN to discover NAT
-bindings. This STUN and TURN traffic needs to run on the same UDP port
+QUIC [I-D.ietf-quic-transport] is a new network transport protocol.
+While it is initially intended as a replacement for TCP in order to
+better support HTTP/2 [RFC7540] it should eventually be useful as a
+general purpose transport. HTTP is an asymmetric client-server 
+protocol, but other uses of QUIC might operate in a peer-to-peer manner
+and so will need effective NAT traversal using ICE [RFC5245], which
+which makes use of STUN [RFC5389] and TURN [RFC5766] to discover NAT bindings.
+This STUN and TURN traffic needs to run on the same UDP port
 as the QUIC traffic. Accordingly, if QUIC is to be used in a peer-to-peer
 manner, then it needs to be possible to demultiplex QUIC, STUN, and TURN
 traffic running on a single UDP port. This memo discusses how to do this.
@@ -112,14 +113,13 @@ traffic running on a single UDP port. This memo discusses how to do this.
 In addition, there are a number of ways in which communication between
 WebRTC peers may utilize QUIC. One of these is transport of
 RTP over QUIC, described in [I-D.rtpfolks-quic-rtp-over-quic].
-Another is use of
-QUIC [I-D.ietf-quic-transport] for data exchange. A Javascript API for
+Another is use of QUIC for data exchange. A Javascript API for
 use of QUIC in WebRTC data exchange has been incorporated into the 
 ORTC API [ORTC], under development within the W3C ORTC Community Group. 
 
-In a WebRTC scenario where ICE [RFC5245] is utilized for NAT traversal, 
+In a WebRTC scenario where ICE is utilized for NAT traversal, 
 SRTP [RFC3711] is keyed using DTLS-SRTP [RFC5764] and QUIC is used for data exchange, 
-RTP/RTCP [RFC3550] STUN [RFC5389], TURN [RFC5766], DTLS [RFC6347], ZRTP [RFC6189] and QUIC
+RTP/RTCP [RFC3550], STUN, TURN, DTLS [RFC6347], ZRTP [RFC6189] and QUIC
 may all need to be multiplexed over a single ICE transport.
 
 As noted in [RFC7983] Figure 3, protocol demultiplexing currently
