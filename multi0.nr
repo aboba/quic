@@ -30,9 +30,12 @@ draft-aboba-avtcore-quic-multiplexing-01.txt
 Abstract
 
 .in +0.3i
-This document describes potential approaches to
-multiplexing of QUIC along with RTP, RTCP, DTLS, STUN,
-TURN and ZRTP in WebRTC peer-to-peer data exchange.
+If QUIC is to be used in a peer-to-peer manner, with NAT traversal,
+then it is necessary to be able to demultiplex QUIC and STUN flows
+running on a single UDP port.  This memo discusses options for how
+to perform such demultiplexing.  It also considers demultiplexing
+of QUIC and WebRTC traffic (both media and data) when running on a 
+single UDP port.
 .in -0.3i
 
 Status of This Memo
